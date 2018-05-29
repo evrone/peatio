@@ -15,6 +15,9 @@ RUN apk add --no-cache \
     ghostscript-fonts \
     nodejs \
     tzdata
+
+#ENV RAILS_ENV production
+
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 ADD vendor vendor
@@ -22,8 +25,8 @@ RUN bundle install \
     --clean \
     --deployment \
     --gemfile ./Gemfile \
-    --jobs=3 \
-    --without development test
+    --jobs=3
+#    --without development test
 RUN apk del .build-deps
 ADD ["./", "./"]
 RUN cp config/database.yml.example config/database.yml
