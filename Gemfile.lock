@@ -127,7 +127,7 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    enumerize (2.2.2)
+    enumerize (0.8.0)
       activesupport (>= 3.2)
     equalizer (0.0.11)
     erubi (1.7.1)
@@ -227,7 +227,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mysql2 (0.5.1)
+    mysql2 (0.3.21)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     oauth2 (1.4.0)
@@ -448,7 +448,7 @@ DEPENDENCIES
   easy_table
   eco
   em-websocket (~> 0.5.1)
-  enumerize
+  enumerize (~> 0.8.0)
   eventmachine (~> 1.0.4)
   factory_girl_rails
   faker (~> 1.4.3)
@@ -472,7 +472,7 @@ DEPENDENCIES
   mina
   mocha
   momentjs-rails
-  mysql2
+  mysql2 (~> 0.3.10)
   omniauth (~> 1.2.1)
   omniauth-identity (~> 1.1.1)
   omniauth-weibo-oauth2 (~> 0.4.0)

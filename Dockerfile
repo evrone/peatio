@@ -15,16 +15,18 @@ RUN apk add --no-cache \
     ghostscript-fonts \
     nodejs \
     tzdata
-#ADD Gemfile Gemfile
-#ADD Gemfile.lock Gemfile.lock
-#ADD vendor vendor
-# RUN bundle install \
-#    --clean \
-#    --deployment \
-#    --gemfile ./Gemfile \
-#    --jobs=3 \
-#    --local \
-#    --without development test
-#RUN apk del .build-deps
-#ADD ["./", "./"]
-#RUN bundle exec rake assets:precompile
+ADD Gemfile Gemfile
+ADD Gemfile.lock Gemfile.lock
+ADD vendor vendor
+RUN bundle install \
+    --clean \
+    --deployment \
+    --gemfile ./Gemfile \
+    --jobs=3 \
+    --without development test
+RUN apk del .build-deps
+ADD ["./", "./"]
+RUN cp config/database.yml.example config/database.yml
+RUN cp config/currencies.yml.example config/currencies.yml
+RUN cp config/markets.yml.example config/markets.yml
+RUN bundle exec rake assets:precompile

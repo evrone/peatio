@@ -12,5 +12,4 @@ test:
   database: peatio_test
 
 production:
-  <<: *defaults
-  database: peatio_production
+  url: <%= ENV['DATABASE_URL'] %>
