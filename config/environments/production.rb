@@ -90,7 +90,10 @@ Peatio::Application.configure do
   # config.autoflush_log = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  # config.log_formatter = ::Logger::Formatter.new
+  config.log_tags  = [:subdomain, :uuid]
+  config.logger    = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
+
   config.active_record.default_timezone = :local
 
   config.middleware.insert_before Rack::Runtime, Middleware::Security
