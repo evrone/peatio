@@ -33,3 +33,7 @@ RUN cp config/database.yml.example config/database.yml
 RUN cp config/currencies.yml.example config/currencies.yml
 RUN cp config/markets.yml.example config/markets.yml
 RUN bundle exec rake assets:precompile
+
+EXPOSE 3000
+
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
