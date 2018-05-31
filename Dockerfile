@@ -33,8 +33,8 @@ RUN cp config/database.yml.example config/database.yml
 RUN cp config/currencies.yml.example config/currencies.yml
 RUN cp config/markets.yml.example config/markets.yml
 RUN cp config/amqp.yml.example config/amqp.yml
-RUN cp config/application.yml.example config/application.yml
 RUN bundle exec rake assets:precompile
+RUN cp config/application.yml.example config/application.yml
 
 EXPOSE 3000
 
