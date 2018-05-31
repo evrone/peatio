@@ -16,7 +16,8 @@ RUN apk add --no-cache \
     nodejs \
     tzdata
 
-#ENV RAILS_ENV production
+ENV RAILS_ENV production
+ENV DATABASE_URL mysql2://127.0.0.1:3306
 
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
@@ -25,8 +26,8 @@ RUN bundle install \
     --clean \
     --deployment \
     --gemfile ./Gemfile \
-    --jobs=3
-#    --without development test
+    --jobs=3 \
+    --without development test
 RUN apk del .build-deps
 ADD ["./", "./"]
 RUN cp config/database.yml.example config/database.yml
