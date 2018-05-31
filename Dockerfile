@@ -32,6 +32,7 @@ ADD ["./", "./"]
 RUN cp config/database.yml.example config/database.yml
 RUN cp config/currencies.yml.example config/currencies.yml
 RUN cp config/markets.yml.example config/markets.yml
+RUN cp config/amqp.yml.example config/amqp.yml
 RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
